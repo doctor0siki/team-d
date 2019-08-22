@@ -934,7 +934,15 @@ figure {
 img {
   vertical-align: middle;
 }
-.img-responsive,
+.img-responsive{
+  display: block;
+  height: auto;
+  max-width: 100%;
+},
+.top-img-responsive{
+  height: 180px;
+  weight: 180px;
+}
 .thumbnail > img,
 .thumbnail a > img,
 .carousel-inner > .item > img,
@@ -2661,6 +2669,7 @@ select[multiple].form-group-lg .form-control {
   margin-top: 5px;
   margin-bottom: 10px;
   color: #737373;
+  background-color: #333333;
 }
 @media (min-width: 768px) {
   .form-inline .form-group {
@@ -2765,9 +2774,11 @@ select[multiple].form-group-lg .form-control {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  background-color: #668ad8;
   background-image: none;
   border: 1px solid transparent;
   border-radius: 4px;
+  color: #FFFFFF;
 }
 .btn:focus,
 .btn:active:focus,
