@@ -1,0 +1,107 @@
+{#レイアウトを継承します#}
+{% extends "layout/layout.twig" %}
+
+{#HTMLのタイトルを定義します。#}
+{% block title %}Refrigist(仮){% endblock %}
+
+{# 適用させたいスタイルシートのパスを指定します #}
+{% block header_scripts_add %}
+<style>
+div {
+  border: solid 1px; /*グリッドラインを出す*/
+}
+p{
+  display: inline-block;
+  padding: 0.5em 1em;
+  background: #ebf6f7;
+  border-bottom: solid 4px #c1e4e9;
+  border-radius: 3px;
+  font-size: 12px;
+  width: 160px;
+  color: #333333;
+}
+.title p{
+  display: inline-block;
+  padding: 0.5em 1em;
+  background: #ebf6f7;
+  border-bottom: solid 4px #c1e4e9;
+  border-radius: 3px;
+  font-size: 12px;
+  width: 160px;
+  color: #333333;
+}
+.tag p{
+  display: inline-block;
+  padding: 0.5em 1em;
+  background: #ebf6f7;
+  font-size: 12px;
+  width: 160px;
+  color: #333333;
+}
+</style>
+{% endblock %}
+
+{#ここから表示したい情報を記載します。#}
+{% block page_content %}
+    <div class="page-header text-center">
+    </div>
+    <div class="container">
+      <div class="box">
+        <div class="row">
+          <div class="col-xs-2">
+            <a href="https://ameblo.jp/syunkon/entry-11069031246.html">
+            <img src="https://stat.ameba.jp/user_images/20111029/00/syunkon/59/f8/j/o0500037511576329381.jpg" width=120 alt="レシピ1">
+            </a>
+          </div>
+          <div class="col">
+            <a href="https://ameblo.jp/syunkon/entry-11069031246.html">
+              <p class="title">【簡単！！カフェごはん】<br>豚キムチマヨオムライス</p>
+              <div class="row">
+                <p class="tag">#タグ、#タグ、#タグ</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="row">
+            <div class="col-xs-2">
+              <a href="https://ameblo.jp/syunkon/entry-10374941767.html">
+                <img src="https://stat.ameba.jp/user_images/20091028/06/syunkon/08/77/j/o0500037510288854916.jpg" width=120 alt="レシピ1">
+              </a>
+            </div>
+            <div class="col">
+              <a href="https://ameblo.jp/syunkon/entry-10374941767.html">
+                <p>簡単で早くできます。<br>豚卵丼。</p>
+                <div class="row">
+                  <p>#タグ、#タグ、#タグ</p>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="box">
+            <div class="row">
+              <div class="col-xs-2">
+                <a href="https://ameblo.jp/syunkon/entry-12263960448.html">
+                  <img src="https://stat.ameba.jp/user_images/20170402/00/syunkon/cb/99/j/o0500037513903888469.jpg" width=120 alt="レシピ1">
+                </a>
+              </div>
+              <div class="col">
+                <a href="https://ameblo.jp/syunkon/entry-12263960448.html">
+                  <p>簡単で早くできます。<br>豚卵丼。</p>
+                  <div class="row">
+                    <p>#タグ、#タグ、#タグ</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+
+
+      </div>
+    </div>
+{% endblock %}
+
+{#共通フッタとして追記したい情報を記載します。#}
+{% block footer_scripts_add %}{% endblock %}

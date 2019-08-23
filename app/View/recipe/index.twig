@@ -2,25 +2,15 @@
 {% extends "layout/layout.twig" %}
 
 {#HTMLのタイトルを定義します。#}
-{% block title %}<img src="/assets/img/logo.png">Refrigist(仮){% endblock %}
+{% block title %}Refrigist(仮){% endblock %}
 
 {# 適用させたいスタイルシートのパスを指定します #}
 {% block header_scripts_add %}
 <style>
-
-
 div{
   width: 300px;
   padding: 5px;              /*ボックス内の幅を調整する【padding】*/
   margin: 5px auto;          /* ボックスの外側に幅を持たせ、真ん中に寄せる【margin】*/
-}
-p{
-  display: inline-block;
-  padding: 0.5em 1em;
-  background: #ebf6f7;        /*ボタンの色*/
-  border-bottom: solid 4px #c1e4e9;
-  border-radius: 3px;
-  font-size: 20px;
 }
 .btn{
   display: inline-block;
@@ -45,27 +35,7 @@ p{
     <div class="page-header text-center">
     </div>
     <div class="container">
-
-      {% if session.user_info  =="" %}
-
         <div class="box">
-          <div class="row">
-            <div class="col">
-              <p>大人気！料理コラムニスト<br>
-                山本ゆりさんの<br>
-                含み笑いのカフェごはん
-                『shunkon』からよく作る<br>
-                レシピをかき集めました！</p>
-                <p>冷蔵庫の中身から作れる<br>
-                レシピを出せるように<br>
-                したい…！</p>
-              </div>
-            </div>
-          </div>
-
-        {% else %}
-
-          <div class="box">
             <div class="row">
               <div class="col text-center">
                 <a href="/recipe"><img src="/assets/img/recipe.png" width=200 hight=200 alt="レシピ"></a>
@@ -79,25 +49,7 @@ p{
                 <button type="button" class="btn btn-lg"><a href="/recipe/list">一覧を見る</a></button>
               </div>
             </div>
-          </div>
-
-          <div class="box">
-            <div class="row">
-              <div class="col text-center">
-                <a href="/refrigerator/index"><img src="/assets/img/refrigerator.png" width=200 hight=200 alt="冷蔵庫"></a>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col text-center">
-                <button type="button" class="btn btn-lg"><a href="/refrigerator/add">登録する</a></button>
-              </div>
-              <div class="col text-center">
-                <button tyoe="button" class="btn btn-lg"><a href="/refrigerator/list">一覧を見る</a></button>
-              </div>
-            </div>
-          </div>
-
-        {% endif %}
+        </div>
 
         </div>
     </div>

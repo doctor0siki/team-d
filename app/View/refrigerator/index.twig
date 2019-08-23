@@ -1,0 +1,59 @@
+{#レイアウトを継承します#}
+{% extends "layout/layout.twig" %}
+
+{#HTMLのタイトルを定義します。#}
+{% block title %}Refrigist(仮){% endblock %}
+
+{# 適用させたいスタイルシートのパスを指定します #}
+{% block header_scripts_add %}
+<style>
+div{
+  width: 300px;
+  padding: 5px;              /*ボックス内の幅を調整する【padding】*/
+  margin: 5px auto;          /* ボックスの外側に幅を持たせ、真ん中に寄せる【margin】*/
+}
+.btn{
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  background: #ebf6f7;        /*ボタンの色*/
+  color: #ffffff;
+  border-bottom: solid 4px #c1e4e9;
+  border-radius: 3px;
+}
+.btn:active {
+  /*ボタンを押したとき*/
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);  /*下に動く*/
+  border-bottom: none;         /*線を消す*/
+}
+</style>
+{% endblock %}
+
+{#ここから表示したい情報を記載します。#}
+{% block page_content %}
+    <div class="page-header text-center">
+    </div>
+    <div class="container">
+        <div class="box">
+          <div class="row">
+            <div class="col text-center">
+              <a href="/refrigerator"><img src="/assets/img/refrigerator.png" width=200 hight=200 alt="冷蔵庫"></a>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col text-center">
+              <button type="button" class="btn btn-lg"><a href="/refrigerator/add">登録する</a></button>
+            </div>
+            <div class="col text-center">
+              <button tyoe="button" class="btn btn-lg"><a href="/refrigerator/list">一覧を見る</a></button>
+            </div>
+          </div>
+        </div>
+
+        </div>
+    </div>
+{% endblock %}
+
+{#共通フッタとして追記したい情報を記載します。#}
+{% block footer_scripts_add %}{% endblock %}
