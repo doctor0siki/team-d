@@ -7,36 +7,25 @@
 {# 適用させたいスタイルシートのパスを指定します #}
 {% block header_scripts_add %}
 <style>
-div {
-  border: solid 1px; /*グリッドラインを出す*/
-}
+/*グリッドラインを出す*/
+/* div {
+  border: solid 1px;
+} */
 p{
   display: inline-block;
   padding: 0.5em 1em;
-  background: #ebf6f7;
   border-bottom: solid 4px #c1e4e9;
   border-radius: 3px;
-  font-size: 12px;
+  font-size: 14px;
+  font-weight: bold;
   width: 160px;
   color: #333333;
 }
-.title p{
-  display: inline-block;
-  padding: 0.5em 1em;
-  background: #ebf6f7;
-  border-bottom: solid 4px #c1e4e9;
-  border-radius: 3px;
-  font-size: 12px;
-  width: 160px;
-  color: #333333;
-}
-.tag p{
-  display: inline-block;
-  padding: 0.5em 1em;
-  background: #ebf6f7;
-  font-size: 12px;
-  width: 160px;
-  color: #333333;
+.row{
+  background-color: rgba(255,255,255,0.5);
+  border-radius: 10px;
+  padding: 5px;              /*ボックス内の幅を調整する【padding】*/
+  margin: 5px auto;          /* ボックスの外側に幅を持たせ、真ん中に寄せる【margin】*/
 }
 </style>
 {% endblock %}
@@ -45,62 +34,32 @@ p{
 {% block page_content %}
     <div class="page-header text-center">
     </div>
-    <div class="container">
-      <div class="box">
-        <div class="row">
-          <div class="col-xs-2">
-            <a href="https://ameblo.jp/syunkon/entry-11069031246.html">
-            <img src="/assets/img/recipe/1.jpg" width=120 alt="レシピ1">
-            </a>
-          </div>
-          <div class="col">
-            <a href="https://ameblo.jp/syunkon/entry-11069031246.html">
-              <p class="title">【簡単！！カフェごはん】<br>豚キムチマヨオムライス</p>
+
+      <div class="container">
+        <div class="container">
+          <div class="box">
+            
+            {% for row in result %}
+
               <div class="row">
-                <p class="tag">#タグ、#タグ、#タグ</p>
+                <div class="col-xs-2">
+                  <a href="/recipe/list/{{ row.id }}">
+                    <img src="{{ row.image_url }}" width=120 alt="レシピ1">
+                  </a>
+                </div>
+                <div class="col">
+                  <a href="/recipe/list/{{ row.id }}">
+                    <p>{{ row.sub_name }}<br>{{ row.name }}</p>
+                  </a>
+                </div>
               </div>
-            </a>
+
+            {% endfor %}
+
           </div>
         </div>
-
-        <div class="box">
-          <div class="row">
-            <div class="col-xs-2">
-              <a href="https://ameblo.jp/syunkon/entry-10374941767.html">
-                <img src="/assets/img/recipe/2.jpg" width=120 alt="レシピ1">
-              </a>
-            </div>
-            <div class="col">
-              <a href="https://ameblo.jp/syunkon/entry-10374941767.html">
-                <p>簡単で早くできます。<br>豚卵丼。</p>
-                <div class="row">
-                  <p>#タグ、#タグ、#タグ</p>
-                </div>
-              </a>
-            </div>
-          </div>
-
-          <div class="box">
-            <div class="row">
-              <div class="col-xs-2">
-                <a href="https://ameblo.jp/syunkon/entry-12263960448.html">
-                  <img src="/assets/img/recipe/3.jpg" width=120 alt="レシピ1">
-                </a>
-              </div>
-              <div class="col">
-                <a href="https://ameblo.jp/syunkon/entry-12263960448.html">
-                  <p>簡単で早くできます。<br>豚卵丼。</p>
-                  <div class="row">
-                    <p>#タグ、#タグ、#タグ</p>
-                  </div>
-                </a>
-              </div>
-            </div>
-
-
-
       </div>
-    </div>
+
 {% endblock %}
 
 {#共通フッタとして追記したい情報を記載します。#}
