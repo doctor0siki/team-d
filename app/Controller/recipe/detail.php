@@ -20,7 +20,8 @@ $app->get('/recipe/detail/{recipe_id}', function (Request $request, Response $re
     //アイテムDAOをインスタンス化します。
     $recipe = new Recipe($this->db);
     //URLパラメータのitem_id部分を引数として渡し、戻り値をresultに格納します
-    $data["result"] = $recipe->getRecipeList($recipe_id);
+    $data["result"] = $recipe->getRecipe($recipe_id);
+    // var_dump($data);die;
     // Render index view
     return $this->view->render($response, 'recipe/detail.twig', $data);
 });
