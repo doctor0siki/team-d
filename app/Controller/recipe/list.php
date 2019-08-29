@@ -3,7 +3,7 @@ use Model\Dao\Recipe;
 use Slim\Http\Request;
 use Slim\Http\Response;
 // 商品一覧を出すコントローラです
-$app->get('/recipe/list/', function (Request $request, Response $response) {
+$app->get('/recipe/list[/]', function (Request $request, Response $response) {
     $data=[];
     //アイテムDAOをインスタンス化します。
     $recipe = new recipe($this->db);
