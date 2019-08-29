@@ -7,6 +7,7 @@ div{
   width: 300px;
   padding: 5px;              /*ボックス内の幅を調整する【padding】*/
   margin: 5px auto;          /* ボックスの外側に幅を持たせ、真ん中に寄せる【margin】*/
+  text-align: center;
 }
 p{
   display: inline-block;

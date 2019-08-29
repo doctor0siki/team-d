@@ -30,13 +30,16 @@
        }
        body {
            font-family: '851MkPOP_002';
-           background-image: url(/assets/img/background.jpg)
+           background-image: url(/assets/img/background_3.jpg)
        }
    </style>
 </head>
 <body role="document">
+  <header class="sticky-top" background-color=#FFC245>
 {#メニューをセットします#}
 {% include 'menu/menu.twig' %}
+
+</header>
 
 {# メインコンテンツを配置します#}
 {% block page_content %}{% endblock %}
