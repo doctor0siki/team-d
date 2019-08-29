@@ -38,20 +38,23 @@ p{
       <div class="container">
         <div class="container">
           <div class="box">
-            
+
             {% for row in result %}
 
               <div class="row">
-                <div class="col-xs-2">
-                  <a href="/recipe/list/{{ row.id }}">
-                    <img src="{{ row.image_url }}" width=120 alt="レシピ1">
-                  </a>
-                </div>
-                <div class="col">
-                  <a href="/recipe/list/{{ row.id }}">
-                    <p>{{ row.sub_name }}<br>{{ row.name }}</p>
-                  </a>
-                </div>
+                  <div class="col-xs-2">
+                    <a href="{{ row.url }}">
+                      <img src="{{ row.image_url }}" width=120 alt="レシピ1">
+                    </a>
+                  </div>
+                  <div class="col">
+                    <a href="{{ row.url }}">
+                      <p>{{ row.sub_name }}<br>{{ row.name }}</p>
+                    </a>
+                  </div>
+                  <div class="col">
+                    <a href="">詳細を見る</a>
+                  </div>
               </div>
 
             {% endfor %}
