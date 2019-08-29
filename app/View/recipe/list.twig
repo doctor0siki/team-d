@@ -6,28 +6,14 @@
 
 {# 適用させたいスタイルシートのパスを指定します #}
 {% block header_scripts_add %}
-<style>
+<link rel="stylesheet" href="/assets/css/RecipeList.css">
+
+<!-- <style>
 /*グリッドラインを出す*/
-/* div {
+div {
   border: solid 1px;
-} */
-p{
-  display: inline-block;
-  padding: 0.5em 1em;
-  border-bottom: solid 4px #c1e4e9;
-  border-radius: 3px;
-  font-size: 14px;
-  font-weight: bold;
-  width: 160px;
-  color: #333333;
 }
-.row{
-  background-color: rgba(255,255,255,0.5);
-  border-radius: 10px;
-  padding: 5px;              /*ボックス内の幅を調整する【padding】*/
-  margin: 5px auto;          /* ボックスの外側に幅を持たせ、真ん中に寄せる【margin】*/
-}
-</style>
+</style> -->
 {% endblock %}
 
 {#ここから表示したい情報を記載します。#}
@@ -44,17 +30,25 @@ p{
               <div class="row">
                   <div class="col-xs-2">
                     <a href="{{ row.url }}">
-                      <img src="{{ row.image_url }}" width=120 alt="レシピ1">
+                      <img src="{{ row.image_url }}" width=120 alt="サムネイル">
                     </a>
                   </div>
                   <div class="col">
                     <a href="{{ row.url }}">
-                      <p>{{ row.sub_name }}<br>{{ row.name }}</p>
+                      <p>{{ row.sub_name }}</p>
+                      <p>{{ row.name }}</p>
                     </a>
+                    <div class="row">
+                      <button type="button" class="btn btn-lg"><a href="/recipe/detail/{{ row.id }}">詳細を見る</a></button>
+                    </div>
+
                   </div>
-                  <div class="col">
-                    <a href="">詳細を見る</a>
-                  </div>
+
+                  <!-- <div class="row">
+                    <p>{{ row.material }}</p>
+                    <p>{{ row.process }}</p>
+                  </div> -->
+
               </div>
 
             {% endfor %}
