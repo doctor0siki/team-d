@@ -1,0 +1,117 @@
+{#レイアウトを継承します#}
+{% extends "layout/layout.twig" %}
+
+{#HTMLのタイトルを定義します。#}
+{% block title %}{{ result.name }}{% endblock %}
+
+{# このページに適用させたいスタイルシートを指定します #}
+{% block header_scripts_add %}
+<link rel="stylesheet" href="/assets/css/RecipeList.css">
+<link rel="stylesheet" href="/assets/css/RecipeDetail.css">
+<style>
+/*グリッドラインを出す*/
+/* div {
+  border: solid 1px;
+} */
+
+h2 {
+  position: relative;
+  background: #faab00;
+  box-shadow: 0px 0px 0px 5px #faab00;
+  border: dashed 2px white;
+  padding: 0.2em 0.5em;
+  color: #454545;
+}
+
+h4 {
+  color: #505050;/*文字色*/
+  padding: 0.5em;/*文字周りの余白*/
+  display: inline-block;/*おまじない*/
+  line-height: 1.3;/*行高*/
+  background: #fada96;/*背景色*/
+  vertical-align: middle;
+  border-radius: 25px 0px 0px 25px;/*左側の角を丸く*/
+  width: 300px;
+}
+
+h4:before {
+  content: '●';
+  color: white;
+  margin-right: 8px;
+}
+
+p {
+    font-size: 20px;
+    font-style: bold;
+}
+
+.btn {
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+  color: #FFF;
+  background: #faab00;
+  transition: .4s;
+}
+
+.btn:hover {
+  background: #1ec7bb;
+}
+
+</style>
+{% endblock %}
+
+{#ここから表示したい情報を記載します。#}
+{% block page_content %}
+    <div class="container">
+        <br>
+        <div class="page-header text-center">
+            <h2>{{ result.name }}</h2>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col">
+                <img src="{{ result.image_url }}" width=300 alt="サムネイル">
+            </div>
+            <!-- <div class="col">
+                <div class="row">
+                  <h3>{{ result.sub_name }}</h3>
+                </div>
+            </div> -->
+        </div>
+        <!-- <div class="row">
+          <h1>{{ result.name }}</h1>
+        </div> -->
+        <hr>
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <h4>材料</h4>
+            </div>
+            <div class="row">
+                <p>{{ result.material | nl2br }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+          <div class="row">
+            <h4>作り方</h4>
+          </div>
+          <div class="row">
+            <p>{{ result.process | nl2br }}</p>
+          </div>
+        </div>
+        </div>
+        </div>
+        <div class="row">
+          <a href="{{ result.url }}" class="btn"><i class="fa fa-chevron-right"></i>レシピを見る</a></button>
+        </div>
+
+    </div>
+{% endblock %}
+
+{#共通フッタとして追記したい情報を記載します。#}
+{% block footer_scripts_add %}{% endblock %}

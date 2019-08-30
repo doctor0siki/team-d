@@ -1,0 +1,65 @@
+{#レイアウトを継承します#}
+{% extends "layout/layout.twig" %}
+
+{#HTMLのタイトルを定義します。#}
+{% block title %}レシピ一覧{% endblock %}
+
+{# 適用させたいスタイルシートのパスを指定します #}
+{% block header_scripts_add %}
+<link rel="stylesheet" href="/assets/css/RecipeList.css">
+
+<!-- <style>
+/*グリッドラインを出す*/
+div {
+  border: solid 1px;
+}
+</style> -->
+{% endblock %}
+
+{#ここから表示したい情報を記載します。#}
+{% block page_content %}
+    <div class="page-header text-center">
+    </div>
+
+      <div class="container">
+        <div class="container">
+          <div class="box">
+
+            {% for row in result %}
+
+              <div class="row">
+                  <div class="col-xs-2">
+                    <!-- <a href="{{ row.url }}"> -->
+                    <a href="/recipe/detail/{{ row.id }}">
+                      <img src="{{ row.image_url }}" width=120 alt="サムネイル">
+                    </a>
+                  </div>
+                  <div class="col">
+                    <!-- <a href="{{ row.url }}"> -->
+                    <a href="/recipe/detail/{{ row.id }}">
+                      <p>{{ row.sub_name }}</p>
+                      <p>{{ row.name }}</p>
+                    </a>
+                    <!-- <div class="row">
+                      <button type="button" class="btn btn-lg"><a href="/recipe/detail/{{ row.id }}">詳細を見る</a></button>
+                    </div> -->
+
+                  </div>
+
+                  <!-- <div class="row">
+                    <p>{{ row.material | nl2br }}</p>
+                    <p>{{ row.process | nl2br }}</p>
+                  </div> -->
+
+              </div>
+
+            {% endfor %}
+
+          </div>
+        </div>
+      </div>
+
+{% endblock %}
+
+{#共通フッタとして追記したい情報を記載します。#}
+{% block footer_scripts_add %}{% endblock %}

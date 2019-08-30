@@ -2,10 +2,11 @@
 {% extends "layout/layout.twig" %}
 
 {#HTMLのタイトルを定義します。#}
-{% block title %}Refrigist(仮){% endblock %}
+{% block title %}{% endblock %}
 
 {# 適用させたいスタイルシートのパスを指定します #}
 {% block header_scripts_add %}
+<link rel="stylesheet" href="/assets/css/index.css">
 {% endblock %}
 
 {#ここから表示したい情報を記載します。#}
@@ -13,28 +14,66 @@
     <div class="page-header text-center">
     </div>
     <div class="container">
+
+      {% if session.user_info  =="" %}
+
         <div class="box">
-            <div class="row">
-                <p>
-                  <img src="/assets/img/refrigerator.png" class="top-img-responsive center-block" alt="冷蔵庫">
-                </p>
-                <p>
-                  <button type="button" class="btn btn-lg"><a href="refrigerator/buy.html">登録する</a></button>
-                  <button tyoe="button" class="btn btn-lg"><a href="refrigerator/list.html">一覧を見る</a></button>
-
-                </p>
+          <div class="row">
+            <div class="col">
+              <p>大人気！料理コラムニスト<br>
+                山本ゆりさんの<br>
+                含み笑いのカフェごはん
+                『shunkon』からよく作る<br>
+                レシピをかき集めました！</p>
+                <p>冷蔵庫の中身から作れる<br>
+                レシピを出せるように<br>
+                したい…！</p>
               </div>
-
-              <div>
-                <p>
-                  <img src="/assets/img/recipe.png" class="top-img-responsive center-block" alt="レシピ">
-                </p>
-                <p>
-                  <button type="button" class="btn btn-lg"><a href="recipe/add.html">登録する</a></button>
-                  <button type="button" class="btn btn-lg"><a href="recipe/list.html" class="btn-square">一覧を見る</a></button>
-                </p>
-
             </div>
+          </div>
+
+        {% else %}
+
+          <div class="box">
+
+            <div class="row">
+              <div class="back">
+              <div class="col text-center">
+                <a href="/recipe"><img src="/assets/img/recipe.png" width=200 hight=200 alt="レシピ"></a>
+              </div>
+            </div>
+            </div>
+            <div class="row">
+              <div class="col text-center">
+                <button type="button" class="btn btn-lg"><a href="/recipe/add">登録する</a></button>
+              </div>
+              <div class="col text-center">
+                <button type="button" class="btn btn-lg"><a href="/recipe/list/">一覧を見る</a></button>
+              </div>
+            </div>
+        </div>
+
+          <div class="box">
+
+            <div class="row">
+              <div class="back">
+              <div class="col text-center">
+                <a href="/refrigerator/index"><img src="/assets/img/refrigerator.png" width=200 hight=200 alt="冷蔵庫"></a>
+              </div>
+            </div>
+            </div>
+            <div class="row">
+              <div class="col text-center">
+                <button type="button" class="btn btn-lg"><a href="/refrigerator/add/">登録する</a></button>
+              </div>
+              <div class="col text-center">
+                <button tyoe="button" class="btn btn-lg"><a href="/refrigerator/list/">一覧を見る</a></button>
+              </div>
+            </div>
+        </div>
+
+        {% endif %}
+
         </div>
     </div>
 {% endblock %}

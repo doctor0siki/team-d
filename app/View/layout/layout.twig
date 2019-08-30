@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{% block title %}{% endblock %}</title>
+    <title>Refrigist(仮) | {% block title %}{% endblock %}</title>
     {% block header_scripts_add %}{% endblock %}
     <!-- BootStrap3 -->
     <style>
@@ -21,12 +21,25 @@
         }
     </style>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" >
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+    <style>
+       @font-face {
+           font-family: '851MkPOP_002';
+           {#追加したテキストを指定する#}
+           src: url('/assets/fonts/851MkPOP_002.ttf') format('truetype');
+       }
+       body {
+           font-family: '851MkPOP_002';
+           background-image: url(/assets/img/background_3.jpg)
+       }
+   </style>
 </head>
 <body role="document">
+  <header class="sticky-top" background-color=#FFC245>
 {#メニューをセットします#}
 {% include 'menu/menu.twig' %}
+
+</header>
 
 {# メインコンテンツを配置します#}
 {% block page_content %}{% endblock %}

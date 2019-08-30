@@ -1,0 +1,46 @@
+{#レイアウトを継承します#}
+{% extends "layout/layout.twig" %}
+
+{#HTMLのタイトルを定義します。#}
+{% block title %}レシピ{% endblock %}
+
+{# 適用させたいスタイルシートのパスを指定します #}
+{% block header_scripts_add %}
+<link rel="stylesheet" href="/assets/css/index.css">
+{% endblock %}
+
+{#ここから表示したい情報を記載します。#}
+{% block page_content %}
+    <div class="page-header text-center">
+    </div>
+    <div class="container">
+
+                <div class="box">
+
+                  <div class="row">
+                    <div class="back">
+                    <div class="col text-center">
+                      <a href="/recipe"><img src="/assets/img/recipe.png" width=200 hight=200 alt="レシピ"></a>
+                    </div>
+                  </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col text-center">
+                      <button type="button" class="btn btn-lg"><a href="/recipe/add">登録する</a></button>
+                    </div>
+                    <div class="col text-center">
+                      <button type="button" class="btn btn-lg"><a href="/recipe/list/">一覧を見る</a></button>
+                    </div>
+                  </div>
+
+              </div>
+
+        </div>
+
+        </div>
+    </div>
+{% endblock %}
+
+{#共通フッタとして追記したい情報を記載します。#}
+{% block footer_scripts_add %}{% endblock %}

@@ -1,0 +1,61 @@
+{#レイアウトを継承します#}
+{% extends "layout/layout.twig" %}
+
+{#HTMLのタイトルを定義します。#}
+{% block title %}レシピ追加{% endblock %}
+
+{# このページに適用させたいスタイルシートを指定します #}
+{% block header_scripts_add %}
+{% endblock %}
+
+{#ここから表示したい情報を記載します。#}
+{% block page_content %}
+    <div class="page-header text-center">
+        <h1>レシピ追加</h1>
+    </div>
+    <div class="container">
+        <div class="box">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="well">
+                        <form id="loginForm" method="POST" action="/recipe/add/">
+                            {% if error %}
+                                <div class="form-group">
+                                    <div class="alert alert-danger" role="alert">{{ error }}</div>
+                                </div>
+                            {% endif %}
+                            <div class="form-group">
+                                <label for="sub_name" class="control-label"> <span class="badge badge-danger">必須</span> サブタイトル</label>
+                                <input type="text" class="form-control" id="sub_name" name="sub_name" value="{{ sub_name }}" required title="Please enter you email" placeholder="サブタイトルを入れてください">
+                            </div>
+                            <div class="form-group">
+                                <label for="name" class="control-label"> <span class="badge badge-danger">必須</span> 料理名</label>
+                                <input type="text" class="form-control" id="name" name="name" value="{{ name }}" required title="Please enter your password" placeholder="料理名を入れてください">
+                            </div>
+                            <div class="form-group">
+                                <label for="url" class="control-label"> <span class="badge badge-danger">必須</span> URL</label>
+                                <input type="url" class="form-control" id="url" name="url" value="{{ url }}" required title="Please re enter your password" placeholder="URLを入れてください">
+                            </div>
+                            <div class="form-group">
+                                <label for="image_url" class="control-label"> <span class="badge badge-danger">必須</span>サムネイル</label>
+                                <input type="url" class="form-control" id="image_url" name="image_url" value="{{ image_url }}" required title="Please enter your name" placeholder="サムネイル画像のURLを入れてください">
+                            </div>
+                            <div class="form-group">
+                                <label for="material" class="control-label"> <span class="badge badge-danger">必須</span> 材料</label>
+                                <input type="text" class="form-control " id="material" name="material" value="{{ material }}" required title="Please enter your zipcode" placeholder="材料をコピペしてください">
+                            </div>
+                            <div class="form-group">
+                                <label for="process" class="control-label"> <span class="badge badge-danger">必須</span> 作り方</label>
+                                <input type="text" class="form-control" id="process" name="process" value="{{ process }}" required title="Please enter your address" placeholder="作り方をコピペしてください">
+                            </div>
+                            <button type="submit" class="btn btn-info btn-block">登録する！</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{#共通フッタとして追記したい情報を記載します。#}
+{% block footer_scripts_add %}{% endblock %}
