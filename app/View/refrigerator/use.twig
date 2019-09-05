@@ -2,75 +2,104 @@
 {% extends "layout/layout.twig" %}
 
 {#HTMLのタイトルを定義します。#}
-{% block title %}{{ result.name }}{% endblock %}
+{% block title %}{{ result.name }}
+{% endblock %}
 
 {# このページに適用させたいスタイルシートを指定します #}
 {% block header_scripts_add %}
-<link rel="stylesheet" href="/assets/css/RecipeList.css">
-<link rel="stylesheet" href="/assets/css/RecipeDetail.css">
-<style>
-/*グリッドラインを出す*/
-/* div {
+  <link rel="stylesheet" href="/assets/css/RecipeList.css">
+  <link rel="stylesheet" href="/assets/css/RecipeDetail.css">
+  <style>
+    /*グリッドラインを出す*/
+    /* div {
   border: solid 1px;
 } */
 
-h2 {
-  position: relative;
-  background: #faab00;
-  box-shadow: 0px 0px 0px 5px #faab00;
-  border: dashed 2px white;
-  padding: 0.2em 0.5em;
-  color: #454545;
-}
+    h2 {
+      position: relative;
+      background: #faab00;
+      box-shadow: 0 0 0 5px #faab00;
+      border: dashed 2px white;
+      padding: 0.2em 0.5em;
+      color: #454545;
+    }
 
-h4 {
-  color: #505050;/*文字色*/
-  padding: 0.5em;/*文字周りの余白*/
-  display: inline-block;/*おまじない*/
-  line-height: 1.3;/*行高*/
-  background: #fada96;/*背景色*/
-  vertical-align: middle;
-  border-radius: 25px 0px 0px 25px;/*左側の角を丸く*/
-  width: 300px;
-}
+    h4 {
+      color: #505050;
+      /*文字色*/
+      padding: 0.5em;
+      /*文字周りの余白*/
+      display: inline-block;
+      /*おまじない*/
+      line-height: 1.3;
+      /*行高*/
+      background: #fada96;
+      /*背景色*/
+      vertical-align: middle;
+      border-radius: 25px 0 0 25px;
+      /*左側の角を丸く*/
+      width: 300px;
+    }
 
-h4:before {
-  content: '●';
-  color: white;
-  margin-right: 8px;
-}
+    h4:before {
+      content: '●';
+      color: white;
+      margin-right: 8px;
+    }
 
-p {
-    font-size: 20px;
-    font-style: bold;
-}
+    p {
+      font-size: 20px;
+      font-style: bold;
+    }
 
-.btn {
-  position: relative;
-  display: inline-block;
-  font-weight: bold;
-  padding: 0.25em 0.5em;
-  text-decoration: none;
-  color: #FFF;
-  background: #faab00;
-  transition: .4s;
-}
+    .back div {
+      background-color: rgba(255,255,255,0.5);
+      border-radius: 30px;
+    }
 
-.btn:hover {
-  background: #1ec7bb;
-}
+    .btn {
+      position: relative;
+      display: inline-block;
+      font-weight: bold;
+      padding: 0.25em 0.5em;
+      text-decoration: none;
+      color: #FFF;
+      background: #faab00;
+      transition: 0.4s;
+      width: 300px;
+    }
 
-</style>
+    .btn:hover {
+      background: #ffae00;
+    }
+  </style>
 {% endblock %}
 
 {#ここから表示したい情報を記載します。#}
 {% block page_content %}
-    <div class="container">
-        <br>
-        <div class="page-header text-center">
-            <h2>{{ result.name }}</h2>
-        </div>
+  <div class="container">
+    <br>
+    <div class="page-header text-center">
+      <h2>{{ result.name }}</h2>
     </div>
+    <div class="box">
+      <div class="back">
+        <div class="row">
+          <h3 class="center">{{ result.name }}は今{{ result.num }}個あります。</h3>
+        </div>
+        <div class="form-group">
+          <label for="number" class="control-label">
+            <h4>何個使いましたか？</h4>
+          </label>
+          <input type="number" class="form-control" id="num" name="num" value="{{ num }}" required="required" title="Please enter you email" placeholder="使った個数を入れてください">
+        </div>
+        <div class="right">
+          <button type="submit" class="btn">登録する！</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 {% endblock %}
 
 {#共通フッタとして追記したい情報を記載します。#}

@@ -51,7 +51,7 @@ class Refrigerator extends Dao
      */
     public function getRefrigerator($id)
     {
-      print $id;
+      // print $id;
         //全件取得するクエリを作成
         $sql = "select * from refrigerator where id =:id";
         // SQLをプリペア
@@ -67,3 +67,9 @@ class Refrigerator extends Dao
         return $statement->fetch();
     }
 }
+    //
+    // public function getRefrigeratorUse($id)
+    // {
+    //   $sql = "select * from refrigerator where id =:id";
+    //   $sql = "UPDATE refrigerator SET num =:num WHERE id =:id";
+    // }

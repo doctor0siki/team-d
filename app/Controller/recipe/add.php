@@ -4,7 +4,6 @@ use Slim\Http\Request;
 use Slim\Http\Response;
 use Model\Dao\Recipe;
 
-
 // 会員登録ページコントローラ
 $app->get('/recipe/add[/]', function (Request $request, Response $response) {
 
@@ -13,7 +12,6 @@ $app->get('/recipe/add[/]', function (Request $request, Response $response) {
 
     // Render index view
     return $this->view->render($response, '/recipe/add.twig', $data);
-
 });
 
 // 会員登録処理コントローラ
@@ -33,7 +31,6 @@ $app->post('/recipe/add[/]', function (Request $request, Response $response) {
 
         // 入力フォームを再度表示します
         return $this->view->render($response, '/recipe/add.twig', $data);
-
     }
 
     //DBに登録をする。戻り値は自動発番されたIDが返ってきます
@@ -47,5 +44,4 @@ $app->post('/recipe/add[/]', function (Request $request, Response $response) {
 
     // 登録完了ページを表示します。
     return $this->view->render($response, '/recipe/add_done.twig', $data);
-
 });

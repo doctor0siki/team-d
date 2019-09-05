@@ -1,61 +1,65 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
+  <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Refrigist(仮) | {% block title %}{% endblock %}</title>
+    <title>Refrigist(仮) |
+      {% block title %}{% endblock %}
+    </title>
     {% block header_scripts_add %}{% endblock %}
     <!-- BootStrap3 -->
     <style>
-        .box {
-            max-width: 300px;
-            margin: 0 auto;
-        }
+      .box {
+        max-width: 300px;
+        margin: 0 auto;
+      }
 
-        .list-unstyled {
-            line-height: 2;
-        }
+      .list-unstyled {
+        line-height: 2;
+      }
 
-        .mb10 {
-            margin: 0 0 10px 0;
-        }
-        .footer{
-          background-color: #ffffff;
+      .mb10 {
+        margin: 0 0 10px;
+      }
+      .footer {
+        background-color: #ffffff;
 
-        }
+      }
     </style>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
     <style>
-       @font-face {
-           font-family: '851MkPOP_002';
-           {#追加したテキストを指定する#}
-           src: url('/assets/fonts/851MkPOP_002.ttf') format('truetype');
-       }
-       body {
-           font-family: '851MkPOP_002';
-           background-image: url(/assets/img/background_3.jpg);
-           color: #333333;
-       }
-   </style>
-</head>
-<body role="document">
-  <header class="sticky-top" background-color=#F8F9FA>
-{#メニューをセットします#}
-{% include 'menu/menu.twig' %}
+      @font-face {
+        font-family: '851MkPOP_002';
+        {
+          #追加したテキストを指定する#
+        }
+        src: url("/assets/fonts/851MkPOP_002.ttf") format('truetype');
+      }
+      body {
+        font-family: '851MkPOP_002';
+        background-image: url("/assets/img/background_3.jpg");
+        color: #333333;
+      }
+    </style>
+  </head>
+  <body role="document">
+    <header class="sticky-top" background-color="#F8F9FA">
+      {#メニューをセットします#}
+      {% include 'menu/menu.twig' %}
 
-</header>
+    </header>
 
-{# メインコンテンツを配置します#}
-{% block page_content %}{% endblock %}
+    {# メインコンテンツを配置します#}
+    {% block page_content %}{% endblock %}
 
-<!-- BootStrap3 -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-{# 追加でスクリプトがほしいときにぶっこまれます #}
-{% block footer_scripts_add %}{% endblock %}
-{# フッタを表示します #}
-{% include 'layout/footer.twig' %}
-</body>
+    <!-- BootStrap3 -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    {# 追加でスクリプトがほしいときにぶっこまれます #}
+    {% block footer_scripts_add %}{% endblock %}
+    {# フッタを表示します #}
+    {% include 'layout/footer.twig' %}
+  </body>
 </html>
