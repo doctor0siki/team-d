@@ -2,31 +2,113 @@
 {% extends "layout/layout.twig" %}
 
 {#HTMLのタイトルを定義します。#}
-{% block title %}Refrigist(仮){% endblock %}
+{% block title %}冷蔵庫一覧{% endblock %}
 
 {# 適用させたいスタイルシートのパスを指定します #}
 {% block header_scripts_add %}
+<link rel="stylesheet" href="/assets/css/RecipeList.css">
+
+<style>
+/*グリッドラインを出す*/
+/* div {
+  border: solid 1px;
+} */
+
+.btn {
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+  color: #FFF;
+  background: #faab00;
+  transition: .4s;
+}
+
+.btn:hover {
+  background: #1ec7bb;
+}
+
+table{
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 15px;
+  overflow: hidden;
+  padding: 2px;
+}
+
+table tr{
+  border: 5px #ffffff solid;
+}
+
+table tr:last-child{
+  border-bottom: none;
+}
+
+table th{
+  position: relative;
+  text-align: left;
+  width: 100px;
+  background-color: #f39800;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+}
+
+table th:after{
+  display: block;
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  top:calc(50% - 10px);
+  right:-10px;
+  border-left: 10px solid #f39800;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+}
+
+table td{
+  text-align: left;
+  width: 70%;
+  text-align: center;
+  background-color: #eee;
+  padding: 10px 0;
+}
+
+</style>
 {% endblock %}
 
 {#ここから表示したい情報を記載します。#}
 {% block page_content %}
-    <div class="page-header text-center">
-    </div>
-    <div class="container">
-        <div class="box">
-            <div class="row">
-              <div>
-                <p>
-                  <a href="recipe.twig"><img src="/assets/img/recipe.png" class="top-img-responsive center-block" alt="レシピ"></a>
-                </p>
-                <p>
-                  <button type="button" class="btn btn-lg"><a href="recipe/add.html">登録する</a></button>
-                  <button type="button" class="btn btn-lg"><a href="recipe/list.html" class="btn-square">一覧を見る</a></button>
-                </p>
+<div class="page-header text-center">
+    <h1>冷蔵庫一覧</h1>
+</div>
 
-            </div>
+      <div class="container">
+        <div class="container">
+          <div class="box">
+
+            {% for row in result %}
+
+              <table>
+                <tr>
+                  <th>{{ row.name }}</th>
+                  <td>
+                    <p>{{ row.num }}個</p>
+                    <a href="/refrigerator/buy/{{ row.id }}" class="btn"><i class="fa fa-chevron-right"></i>買った</a></button>
+                    <a href="/refrigerator/use/{{ row.id }}" class="btn"><i class="fa fa-chevron-right"></i>使った</a></button>
+                  </td>
+                </tr>
+              </table>
+
+            {% endfor %}
+
+          </div>
         </div>
-    </div>
+      </div>
+
 {% endblock %}
 
 {#共通フッタとして追記したい情報を記載します。#}

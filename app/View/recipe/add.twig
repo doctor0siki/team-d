@@ -6,6 +6,23 @@
 
 {# このページに適用させたいスタイルシートを指定します #}
 {% block header_scripts_add %}
+<style>
+.btn {
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+  color: #FFF;
+  background: #faab00;
+  transition: .4s;
+  width: 300px;
+}
+
+.btn:hover {
+  background: #ffae00;
+}
+</style>
 {% endblock %}
 
 {#ここから表示したい情報を記載します。#}
@@ -48,7 +65,7 @@
                                 <label for="process" class="control-label"> <span class="badge badge-danger">必須</span> 作り方</label>
                                 <input type="text" class="form-control" id="process" name="process" value="{{ process }}" required title="Please enter your address" placeholder="作り方をコピペしてください">
                             </div>
-                            <button type="submit" class="btn btn-info btn-block">登録する！</button>
+                            <button type="submit" class="btn">登録する！</button>
                         </form>
                     </div>
                 </div>
