@@ -31,4 +31,8 @@ p{
   transform: translateY(4px);  /*下に動く*/
    border-bottom: none;         /*線を消す*/
  }
+ a:link { color: #333; }
+ a:visited { color: #333; }
+ a:hover { color: #333; }
+ a:active { color: #333; }
 </style>
