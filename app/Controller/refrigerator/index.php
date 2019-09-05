@@ -11,3 +11,4 @@ $app->get('/refrigerator[/]', function (Request $request, Response $response) {
     // Render index view
     return $this->view->render($response, 'refrigerator/index.twig', $data);
 });
+
