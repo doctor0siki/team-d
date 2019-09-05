@@ -31,7 +31,7 @@ h4 {
   background: #fada96;/*背景色*/
   vertical-align: middle;
   border-radius: 25px 0px 0px 25px;/*左側の角を丸く*/
-  width: 350px;
+  width: 300px;
 }
 
 h4:before {
@@ -70,41 +70,7 @@ p {
         <div class="page-header text-center">
             <h2>{{ result.name }}</h2>
         </div>
-        <hr>
-        <div class="row">
-            <div class="col">
-                <img src="{{ result.image_url }}" width=335 alt="サムネイル">
-            </div>
-        </div>
-        <hr>
-        <div class="row">
-          <div class="col">
-            <div class="row">
-              <h4>材料</h4>
-            </div>
-            <div class="row">
-                <p>{{ result.material | nl2br }}</p>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-          <div class="row">
-            <h4>作り方</h4>
-          </div>
-          <div class="row">
-            <p>{{ result.process | nl2br }}</p>
-          </div>
-        </div>
-        </div>
-        </div>
-        <hr>
-        <div>
-          <a href="{{ result.url }}" class="btn"><i class="fa fa-chevron-right"></i>レシピを見る</a></button>
-        </div>
-
     </div>
-    <hr>
 {% endblock %}
 
 {#共通フッタとして追記したい情報を記載します。#}
