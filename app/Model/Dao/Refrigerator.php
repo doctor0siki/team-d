@@ -66,10 +66,27 @@ class Refrigerator extends Dao
         // //結果レコードを一件取得し、返送
         return $statement->fetch();
     }
-}
+
     //
     // public function getRefrigeratorUse($id)
     // {
     //   $sql = "select * from refrigerator where id =:id";
-    //   $sql = "UPDATE refrigerator SET num =:num WHERE id =:id";
+    //   $sql = "UPDATE refrigerator SET num =:num+num WHERE id =:id";
     // }
+    //
+    public function updateRefrigeratorAdd($id, $num){
+      // print $id;
+        //全件取得するクエリを作成
+        $sql = "UPDATE refrigerator SET num =:num WHERE id =:id";
+        // SQLをプリペア
+        $statement = $this->db->prepare($sql);
+        //idを指定します
+        $statement->bindParam(":id", $id, PDO::PARAM_INT);
+        $statement->bindParam(":num", $num, PDO::PARAM_INT);
+        //SQLを実行
+        $statement->execute();
+        // var_dump($statement);
+        // //結果レコードを一件取得し、返送
+        return;
+    }
+}

@@ -24,7 +24,7 @@
       color: #454545;
     }
 
-    h4 {
+    h5 {
       color: #505050;
       /*文字色*/
       padding: 0.5em;
@@ -41,7 +41,7 @@
       width: 300px;
     }
 
-    h4:before {
+    h5:before {
       content: '●';
       color: white;
       margin-right: 8px;
@@ -90,15 +90,21 @@
         <h3 class="center">{{ result.name }}は今{{ result.num }}個あります。</h3>
       </div>
       <hr>
-      <div class="form-group">
+
         <label for="number" class="control-label">
-          <h4>何個買いましたか？</h4>
+          <h5>合計何個になりましたか？</h5>
         </label>
-        <input type="number" class="form-control" id="num" name="num" value="{{ num }}" required="required" title="Please enter you email" placeholder="買った個数を入れてください">
-      </div>
+        <form id="loginForm" method="POST" action="/refrigerator/buy_done">
+          <div class="form-group">
+            <input type="number" class="form-control" id="num" name="num" value="{{ num }}" required="required" title="Please enter you email" placeholder="足した個数を入れてください">
+            <input type="hidden" name="id" value="{{ result.id }}">
+          </div>
+
+
       <div class="right">
         <button type="submit" class="btn">登録する！</button>
       </div>
+      </form>
     </div>
   </div>
 {% endblock %}
